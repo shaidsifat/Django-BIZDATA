@@ -3,15 +3,33 @@ from django.utils.translation import gettext as _
 
 class Book (models.Model):
 
-  title = models.CharField(_("title"), max_length=255)
-  authors = models.CharField(_("authors"), max_length=255)
-  average_rating = models.FloatField(_("average rating"))
-  isbn = models.CharField(_("isbn"), max_length=150)
-  isbn13 = models.CharField(_("isbn 13"), max_length=150)
-  language_code = models.CharField(_("language code"), max_length=10)
-  num_pages = models.IntegerField(_("number of pages"))
-  ratings_count = models.BigIntegerField(_("rating count"))
-  text_review_count = models.BigIntegerField(_("text review count"))
-  publication_date = models.DateField(_("publication date"), auto_now=True)
-  publisher = models.CharField(_("publisher"), max_length=150)
+  InvoiceID = models.CharField(max_length=100,null=True)
+  Branch = models.CharField(max_length=255,null=True)
+  City = models.CharField(max_length=255,null=True)
+  Customer_type = models.CharField(max_length=300,null=True)
+  Gender = models.CharField(max_length=300,null=True)
+  Product_line= models.CharField(max_length=300,null=True)
+  Unit_price= models.FloatField(max_length=20,null=True)
+  Quantity =  models.IntegerField(null=True)
+  Tax =  models.IntegerField(null=True)
+  Total =  models.IntegerField(null=True)
+  Date= models.DateField(null=True)
+  Time = models.TimeField(null=True)
+  Payment = models.CharField(max_length=255,null=True)
+  cogs = models.FloatField(max_length=20,null=True)
+  groosmarginpercent = models.FloatField(null=True)
+  grossincome = models.FloatField(null=True)
+  Rating = models.FloatField(max_length=200,null=True)
+
+
+  def __str__(self):
+        return f"self.invoiceid"
+
+class MOnthlyGrossIncome(models.Model):
+
+  highestgrossincome = models.FloatField(null=True)
+
+
+  def __str__(self) -> str:
+     return self.highestgrossincome
 

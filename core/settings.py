@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'book',
+    'import_export',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -68,18 +70,30 @@ TEMPLATES = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
 
 
 # Password validation
